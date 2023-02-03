@@ -1,0 +1,62 @@
+<div class="card" style="margin: 0px 0px 0px 20px">
+  <h3 style="margin: 20px 20px 20px 20px">Leads</h3>
+  <br />
+  <p-table
+    responsiveLayout="stack"
+    [value]="products"
+    scrollHeight="500px"
+    [rowHover]="true"
+  >
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th>Read</th>
+        <th>Customer Name</th>
+        <th>Message</th>
+        <th>Property</th>
+        <th>Time</th>
+        <!-- <th>Reviews</th> -->
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product let-columns="columns">
+      <tr>
+        <td>
+          <p-checkbox
+            [binary]="true"
+            [readonly]="controlClassDisabled"
+            value="{{ product.read }}"
+          ></p-checkbox>
+        </td>
+        <!--<span class="p-column-title">Read</span>-->
+        <td>
+          {{ product.customerName }}
+        </td>
+        <!--<span class="p-column-title">Price</span
+          >    | currency: "USD"  -->
+        <td>
+          <span class="p-column-title">Category</span>{{ product.message }}
+        </td>
+        <td>
+          <span class="p-column-title">Quantity</span>{{ product.property }}
+        </td>
+        <td>
+          <span class="p-column-title">Status</span
+          ><span>{{ product.time }}</span>
+        </td>
+        <!-- [class]="
+          'product-badge status-' +
+          (product.inventoryStatus
+            ? product.inventoryStatus.toLowerCase()
+            : '')
+        "-->
+        <!-- <td>
+          <span class="p-column-title">Reviews</span>
+          <p-rating
+            [ngModel]="product.rating"
+            [readonly]="true"
+            [cancel]="false"
+          ></p-rating>
+        </td> -->
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

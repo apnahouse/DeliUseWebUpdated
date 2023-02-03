@@ -1,0 +1,75 @@
+<!-- <div class="sidebar">
+  <a class="navbar-brand" href="/dashboard"
+    ><img
+      style="width: 99%; height: 100%"
+      src="./../../../assets/img/FName.png"
+  /></a>
+  <ul>
+    <li>
+      <a routerLink="/dashboard" routerLinkActive="active"
+        ><i class="menu-icon fa fa-home"></i>Dashboard
+      </a>
+    </li>
+    <li
+      *ngFor="let mainMenu of mainMenuItems"
+      class="menu-item-has-children dropdown"
+      id="MenuLst"
+    >
+      <a
+        href="#"
+        class="dropdown-toggle"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <span>{{ mainMenu.pageName }}</span></a
+      >
+      <ul class="sub-menu children dropdown-menu">
+        <li *ngFor="let subMenu of subMenuItems | SidePanel: mainMenu">
+          <a
+            style="color: black"
+            routerLinkActive="active"
+            routerLink="/{{ subMenu.controlerNm }}/{{ subMenu.actionNm }}"
+            ><i class="fa fa-angle-right"></i>{{ subMenu.pageName }}</a
+          >
+        </li>
+        <br />
+      </ul>
+    </li>
+  </ul>
+</div> -->
+
+<div>
+  <ul>
+    <li>
+      <a routerLink="/dashboard" routerLinkActive="active"
+        ><i class="menu-icon fa fa-home"></i>Dashboard
+      </a>
+    </li>
+    <li
+      *ngFor="let mainMenu of mainMenuItems"
+      class="menu-item-has-children dropdown"
+      id="MenuLst"
+    >
+      <a
+        href="#"
+        class="dropdown-toggle"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <span>{{ mainMenu.pageName }}</span></a
+      >
+      <!-- <ul class="sub-menu children dropdown-menu">
+        <li *ngFor="let subMenu of subMenuItems | sidepanel: mainMenu">
+          <a routerLink="/{{ subMenu.controlerNm }}/{{ subMenu.actionNm }}">
+
+            {{ subMenu.pageName }}</a
+          >
+        </li>
+      </ul> -->
+    </li>
+  </ul>
+</div>
+<!-- routerLinkActive="active"-->
+<!-- <i class="fa fa-angle-right"></i> -->

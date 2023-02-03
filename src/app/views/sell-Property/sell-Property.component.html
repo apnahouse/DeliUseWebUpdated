@@ -1,0 +1,737 @@
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div class="card">
+      <h3 style="margin: 20px 0px 0px 20px">Sell</h3>
+      <br />
+      <!-- <h5 class="myself">I am</h5> -->
+      <p-tabView styleClass="tabview-custom">
+        <p-tabPanel>
+          <ng-template pTemplate="header">
+            <i class="pi pi-user"></i>
+            <span>Owner</span>
+          </ng-template>
+          <div [formGroup]="sellForm">
+            <div style="padding: 0 30 0 30px">
+              <div class="row rowspeding3">
+                <!-- Sell Type -->
+                <div class="col-md-12">
+                  <fieldset style="min-width: 10px; margin: 10px; border: 1">
+                    <label for="Company Name" style="font-weight: bold"
+                      >I Want To </label
+                    >&nbsp;&nbsp;
+                    <input
+                      formControlName="sellTypeId"
+                      name="sellTypeId"
+                      type="radio"
+                      value="1"
+                    />&nbsp; <label for="Sell">Sell</label>&nbsp;&nbsp;
+
+                    <input
+                      formControlName="sellTypeId"
+                      type="radio"
+                      name="sellTypeId"
+                      value="2"
+                    />&nbsp; <label for="Rent">Rent</label>&nbsp;&nbsp;
+                    <input
+                      formControlName="sellTypeId"
+                      name="sellTypeId"
+                      type="radio"
+                      value="3"
+                    />&nbsp; <label for="Lease">Lease</label>&nbsp;
+                  </fieldset>
+                </div>
+
+                <!--Property Kind-->
+                <div class="col-md-12">
+                  <fieldset style="min-width: 10px; margin: 10px; border: 1">
+                    <label for="Property Kind" style="font-weight: bold"
+                      >What Kind Of Property </label
+                    >&nbsp;&nbsp;
+                    <input
+                      formControlName="propertyKindId"
+                      name="propertyKindId"
+                      type="radio"
+                      value="1"
+                    />&nbsp;
+                    <label for="Commercial">Commercial Property</label
+                    >&nbsp;&nbsp;
+
+                    <input
+                      formControlName="propertyKindId"
+                      type="radio"
+                      name="propertyKindId"
+                      value="2"
+                    />&nbsp;
+                    <label for="Residential">Residential Property</label>
+                  </fieldset>
+                </div>
+
+                <!--Property type-->
+                <div class="col-md-12">
+                  <fieldset style="min-width: 10px; margin: 10px; border: 1">
+                    <label for="Company Name" style="font-weight: bold"
+                      >Property type </label
+                    >&nbsp;&nbsp;
+                    <input
+                      formControlName="propertyTypeId"
+                      name="propertyTypeId"
+                      type="radio"
+                      value="1"
+                    />&nbsp; <label for="Sell">Apartments</label>&nbsp;&nbsp;
+
+                    <input
+                      formControlName="propertyTypeId"
+                      type="radio"
+                      name="propertyTypeId"
+                      value="2"
+                    />&nbsp; <label for="Rent">Builder Floor</label>&nbsp;&nbsp;
+                    <input
+                      formControlName="propertyTypeId"
+                      type="radio"
+                      name="propertyTypeId"
+                      value="3"
+                    />&nbsp; <label for="Rent">House / Villa</label>&nbsp;&nbsp;
+                    <input
+                      formControlName="propertyTypeId"
+                      type="radio"
+                      name="propertyTypeId"
+                      value="4"
+                    />&nbsp; <label for="Rent">PentHouse</label>&nbsp;&nbsp;
+                    <input
+                      formControlName="propertyTypeId"
+                      type="radio"
+                      name="propertyTypeId"
+                      value="5"
+                    />&nbsp; <label for="Rent">Farm House</label>&nbsp;&nbsp;
+                    <input
+                      formControlName="propertyTypeId"
+                      name="propertyTypeId"
+                      type="radio"
+                      value="6"
+                    />&nbsp; <label for="Lease">Plot</label>&nbsp;
+                  </fieldset>
+                </div>
+
+                <!--Age Of Property-->
+                <div class="col-md-12">
+                  <fieldset style="min-width: 10px; margin: 10px; border: 1">
+                    <label for="Age Of Property" style="font-weight: bold"
+                      >Age Of Property </label
+                    >&nbsp;&nbsp;
+                    <input
+                      formControlName="ageOfProperty"
+                      name="ageOfProperty"
+                      type="radio"
+                      value="1"
+                    />&nbsp; <label for="Sell">1 - 5 Years</label>&nbsp;&nbsp;
+
+                    <input
+                      formControlName="ageOfProperty"
+                      type="radio"
+                      name="ageOfProperty"
+                      value="2"
+                    />&nbsp; <label for="Rent">6 - 10 Years</label>&nbsp;&nbsp;
+                    <input
+                      formControlName="ageOfProperty"
+                      type="radio"
+                      name="ageOfProperty"
+                      value="3"
+                    />&nbsp; <label for="Rent">11- 15 Years</label>&nbsp;&nbsp;
+                    <input
+                      formControlName="ageOfProperty"
+                      name="ageOfProperty"
+                      type="radio"
+                      value="4"
+                    />&nbsp; <label for="Lease">16 - 20 Years</label>&nbsp;
+                  </fieldset>
+
+                  <!-- <div
+              *ngIf="f.compId.invalid && (f.compId.dirty || f.compId.touched)"
+              style="color: red; font-size: 13px"
+            >
+              <div *ngIf="f.compId.errors.required">
+                <label>*Company is required</label>
+              </div>
+            </div> -->
+                </div>
+
+                <!--Property On Floor-->
+                <div class="col-md-12">
+                  <fieldset style="min-width: 10px; margin: 10px; border: 1">
+                    <label for="Property On Floor" style="font-weight: bold"
+                      >Property On Floor </label
+                    >&nbsp;&nbsp;
+                    <input
+                      formControlName="floorOfProperty"
+                      name="floorOfProperty"
+                      type="radio"
+                      value="1"
+                    />&nbsp; <label for="Sell">Ground</label>&nbsp;&nbsp;
+
+                    <input
+                      formControlName="floorOfProperty"
+                      type="radio"
+                      name="floorOfProperty"
+                      value="2"
+                    />&nbsp; <label for="Rent">1st Floor</label>&nbsp;&nbsp;
+                    <input
+                      formControlName="floorOfProperty"
+                      type="radio"
+                      name="floorOfProperty"
+                      value="3"
+                    />&nbsp; <label for="Rent">2nd Floor</label>&nbsp;&nbsp;
+                    <input
+                      formControlName="floorOfProperty"
+                      type="radio"
+                      name="floorOfProperty"
+                      value="4"
+                    />&nbsp; <label for="Rent">3rd Floor</label>&nbsp;&nbsp;
+                    <input
+                      formControlName="floorOfProperty"
+                      type="radio"
+                      name="floorOfProperty"
+                      value="5"
+                    />&nbsp; <label for="Rent">4th Floor</label>&nbsp;&nbsp;
+                    <input
+                      formControlName="floorOfProperty"
+                      name="floorOfProperty"
+                      type="radio"
+                      value="6"
+                    />&nbsp; <label for="Lease">Top Floor</label>&nbsp;
+                  </fieldset>
+                </div>
+
+                <!--Facing-->
+                <div class="col-md-12">
+                  <fieldset style="min-width: 10px; margin: 10px; border: 1">
+                    <label for="Facing" style="font-weight: bold">Facing </label
+                    >&nbsp;&nbsp;
+                    <input
+                      formControlName="facingType"
+                      name="facingType"
+                      type="radio"
+                      value="1"
+                    />&nbsp; <label for="Sell">North</label>&nbsp;&nbsp;
+
+                    <input
+                      formControlName="facingType"
+                      type="radio"
+                      name="facingType"
+                      value="2"
+                    />&nbsp; <label for="Rent">East</label>&nbsp;&nbsp;
+                    <input
+                      formControlName="facingType"
+                      type="radio"
+                      name="facingType"
+                      value="3"
+                    />&nbsp; <label for="Rent">South</label>&nbsp;&nbsp;
+                    <input
+                      formControlName="facingType"
+                      type="radio"
+                      name="facingType"
+                      value="4"
+                    />&nbsp; <label for="Rent">West</label>&nbsp;&nbsp;
+                    <input
+                      formControlName="facingType"
+                      name="facingType"
+                      type="radio"
+                      value="5"
+                    />&nbsp; <label for="Lease">Other</label>&nbsp;
+                  </fieldset>
+                </div>
+
+                <!--Available From-->
+                <div class="col-md-12">
+                  <fieldset style="min-width: 10px; margin: 10px; border: 1">
+                    <label for="Available From" style="font-weight: bold"
+                      >Available From </label
+                    >&nbsp;&nbsp;
+                    <input
+                      formControlName="availableType"
+                      name="availableType"
+                      type="radio"
+                      value="1"
+                    />&nbsp; <label for="Sell">Ready To Move</label>&nbsp;&nbsp;
+
+                    <input
+                      formControlName="availableType"
+                      type="radio"
+                      name="availableType"
+                      value="2"
+                    />&nbsp; <label for="Rent">Under Construction</label>&nbsp;
+                  </fieldset>
+                </div>
+
+                <!--Bathroom-->
+                <div class="col-md-12">
+                  <fieldset style="min-width: 10px; margin: 10px; border: 1">
+                    <label for="Bathroom" style="font-weight: bold"
+                      >Bathroom </label
+                    >&nbsp;&nbsp;
+                    <input
+                      formControlName="noOfBathroom"
+                      name="noOfBathroom"
+                      type="radio"
+                      value="1"
+                    />&nbsp; <label for="Sell">1</label>&nbsp;&nbsp;
+
+                    <input
+                      formControlName="noOfBathroom"
+                      type="radio"
+                      name="noOfBathroom"
+                      value="2"
+                    />&nbsp; <label for="Rent">2</label>&nbsp;&nbsp;
+                    <input
+                      formControlName="noOfBathroom"
+                      type="radio"
+                      name="noOfBathroom"
+                      value="3"
+                    />&nbsp; <label for="Rent">3</label>&nbsp;&nbsp;
+                    <input
+                      formControlName="noOfBathroom"
+                      type="radio"
+                      name="noOfBathroom"
+                      value="4"
+                    />&nbsp; <label for="Rent">4</label>&nbsp;&nbsp;
+                    <input
+                      formControlName="noOfBathroom"
+                      name="noOfBathroom"
+                      type="radio"
+                      value="6"
+                    />&nbsp; <label for="Lease">4+</label>&nbsp;
+                  </fieldset>
+                </div>
+
+                <!--Balcony-->
+                <div class="col-md-12">
+                  <fieldset style="min-width: 10px; margin: 10px; border: 1">
+                    <label for="Balcony" style="font-weight: bold"
+                      >Balcony </label
+                    >&nbsp;&nbsp;
+                    <input
+                      formControlName="noOfBalcony"
+                      name="noOfBalcony"
+                      type="radio"
+                      value="1"
+                    />&nbsp; <label for="Sell">0</label>&nbsp;&nbsp;
+
+                    <input
+                      formControlName="noOfBalcony"
+                      type="radio"
+                      name="noOfBalcony"
+                      value="2"
+                    />&nbsp; <label for="Rent">1</label>&nbsp;&nbsp;
+                    <input
+                      formControlName="noOfBalcony"
+                      type="radio"
+                      name="noOfBalcony"
+                      value="3"
+                    />&nbsp; <label for="Rent">2</label>&nbsp;&nbsp;
+                    <input
+                      formControlName="noOfBalcony"
+                      type="radio"
+                      name="noOfBalcony"
+                      value="4"
+                    />&nbsp; <label for="Rent">3</label>&nbsp;&nbsp;
+
+                    <input
+                      formControlName="noOfBalcony"
+                      name="noOfBalcony"
+                      type="radio"
+                      value="6"
+                    />&nbsp; <label for="Lease">3+</label>&nbsp;
+                  </fieldset>
+                </div>
+
+                <!--Furnishing Type-->
+                <div class="col-md-12">
+                  <fieldset style="min-width: 10px; margin: 10px; border: 1">
+                    <label for="Furnishing Type" style="font-weight: bold"
+                      >Furnishing Type </label
+                    >&nbsp;&nbsp;
+                    <input
+                      formControlName="furnishingType"
+                      name="furnishingType"
+                      type="radio"
+                      value="1"
+                    />&nbsp; <label for="Sell">Unfurnished</label>&nbsp;&nbsp;
+
+                    <input
+                      formControlName="furnishingType"
+                      type="radio"
+                      name="furnishingType"
+                      value="2"
+                    />&nbsp;
+                    <label for="Rent">Semi-Furnished</label>&nbsp;&nbsp;
+                    <input
+                      formControlName="furnishingType"
+                      type="radio"
+                      name="furnishingType"
+                      value="3"
+                    />&nbsp; <label for="Rent">Furnished</label>&nbsp;
+                  </fieldset>
+                </div>
+
+                <!--Covered Parking-->
+                <div class="col-md-12">
+                  <fieldset style="min-width: 10px; margin: 10px; border: 1">
+                    <label for="Covered Parking" style="font-weight: bold"
+                      >Covered Parking </label
+                    >&nbsp;&nbsp;
+                    <input
+                      formControlName="noOfCoveredParking"
+                      name="noOfCoveredParking"
+                      type="radio"
+                      value="1"
+                    />&nbsp; <label for="Sell">0</label>&nbsp;&nbsp;
+
+                    <input
+                      formControlName="noOfCoveredParking"
+                      type="radio"
+                      name="noOfCoveredParking"
+                      value="2"
+                    />&nbsp; <label for="Rent">1</label>&nbsp;&nbsp;
+                    <input
+                      formControlName="noOfCoveredParking"
+                      type="radio"
+                      name="noOfCoveredParking"
+                      value="3"
+                    />&nbsp; <label for="Rent">2</label>&nbsp;&nbsp;
+                    <input
+                      formControlName="noOfCoveredParking"
+                      type="radio"
+                      name="noOfCoveredParking"
+                      value="4"
+                    />&nbsp; <label for="Rent">3</label>&nbsp;&nbsp;
+
+                    <input
+                      formControlName="noOfCoveredParking"
+                      name="noOfCoveredParking"
+                      type="radio"
+                      value="6"
+                    />&nbsp; <label for="Lease">4</label>&nbsp;
+                  </fieldset>
+                </div>
+
+                <div class="col-md-12">
+                  <fieldset style="min-width: 10px; margin: 10px; border: 1">
+                    <label for="Open Parking" style="font-weight: bold"
+                      >Open Parking </label
+                    >&nbsp;&nbsp;
+
+                    <input
+                      formControlName="noOfOpenParking"
+                      name="noOfOpenParking"
+                      type="radio"
+                      value="1"
+                    />&nbsp; <label for="Sell">0</label>&nbsp;&nbsp;
+
+                    <input
+                      formControlName="noOfOpenParking"
+                      type="radio"
+                      name="noOfOpenParking"
+                      value="2"
+                    />&nbsp; <label for="Rent">1</label>&nbsp;&nbsp;
+                    <input
+                      formControlName="noOfOpenParking"
+                      type="radio"
+                      name="noOfOpenParking"
+                      value="3"
+                    />&nbsp; <label for="Rent">2</label>&nbsp;&nbsp;
+                    <input
+                      formControlName="noOfOpenParking"
+                      type="radio"
+                      name="noOfOpenParking"
+                      value="4"
+                    />&nbsp; <label for="Rent">3</label>&nbsp;&nbsp;
+
+                    <input
+                      formControlName="noOfOpenParking"
+                      name="noOfOpenParking"
+                      type="radio"
+                      value="6"
+                    />&nbsp; <label for="Lease">4</label>&nbsp;
+                  </fieldset>
+                </div>
+                <br />
+
+                <div class="row">
+                  <!-- City -->
+                  <div class="col-md-4">
+                    <label for="city" style="font-weight: bold"
+                      >City<span style="color: red">*</span></label
+                    >
+
+                    <input
+                      class="form-control"
+                      id="city"
+                      maxlength="20"
+                      formControlName="city"
+                      placeholder="City"
+                      type="text"
+                      pInputText
+                    />
+                    <div
+                      *ngIf="
+                        f['city'].invalid &&
+                        (f['city'].dirty || f['city'].touched)
+                      "
+                      style="color: red; font-size: 13px"
+                    >
+                      <div *ngIf="f['city'].errors.required">
+                        <label>*City is required</label>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- locality -->
+                  <div class="col-md-4">
+                    <label for="locality" style="font-weight: bold"
+                      >Locality<span style="color: red">*</span></label
+                    >
+
+                    <input
+                      class="form-control"
+                      id="locality"
+                      maxlength="20"
+                      formControlName="locality"
+                      placeholder="Locality"
+                      type="text"
+                      pInputText
+                    />
+                    <div
+                      *ngIf="
+                        f['locality'].invalid &&
+                        (f['locality'].dirty || f['locality'].touched)
+                      "
+                      style="color: red; font-size: 13px"
+                    >
+                      <div *ngIf="f['locality'].errors.required">
+                        <label>*Locality is required</label>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- plotArea -->
+                  <div class="col-md-4">
+                    <label for="plotArea" style="font-weight: bold"
+                      >Plot Area (Sq. Ft.)<span style="color: red"
+                        >*</span
+                      ></label
+                    >
+
+                    <input
+                      class="form-control"
+                      id="plotArea"
+                      maxlength="20"
+                      formControlName="plotArea"
+                      placeholder="Plot Area"
+                      type="text"
+                      pInputText
+                    />
+                    <div
+                      *ngIf="
+                        f['plotArea'].invalid &&
+                        (f['plotArea'].dirty || f['plotArea'].touched)
+                      "
+                      style="color: red; font-size: 13px"
+                    >
+                      <div *ngIf="f['plotArea'].errors.required">
+                        <label>*Plot Area is required</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br />
+                <div class="row">
+                  <!-- builtUpArea -->
+                  <div class="col-md-4">
+                    <label for="builtUpArea" style="font-weight: bold"
+                      >Built Up Area (Sq. ft.)<span style="color: red"
+                        >*</span
+                      ></label
+                    >
+
+                    <input
+                      class="form-control"
+                      id="builtUpArea"
+                      maxlength="20"
+                      formControlName="builtUpArea"
+                      placeholder="Built Up Area (Sq. ft.)"
+                      type="text"
+                      pInputText
+                    />
+                    <div
+                      *ngIf="
+                        f['builtUpArea'].invalid &&
+                        (f['builtUpArea'].dirty || f['builtUpArea'].touched)
+                      "
+                      style="color: red; font-size: 13px"
+                    >
+                      <div *ngIf="f['builtUpArea'].errors.required">
+                        <label>*Built Up Area is required</label>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- expectedPrice -->
+                  <div class="col-md-4">
+                    <label for="expectedPrice" style="font-weight: bold"
+                      >Expected Price<span style="color: red">*</span></label
+                    >
+
+                    <input
+                      class="form-control"
+                      id="expectedPrice"
+                      maxlength="20"
+                      formControlName="expectedPrice"
+                      placeholder="Expected Price"
+                      type="text"
+                      pInputText
+                    />
+                    <div
+                      *ngIf="
+                        f['expectedPrice'].invalid &&
+                        (f['expectedPrice'].dirty || f['expectedPrice'].touched)
+                      "
+                      style="color: red; font-size: 13px"
+                    >
+                      <div *ngIf="f['expectedPrice'].errors.required">
+                        <label>*Expected Price is required</label>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- totalFloors -->
+                  <div class="col-md-4">
+                    <label for="totalFloors" style="font-weight: bold"
+                      >Total Floors<span style="color: red">*</span></label
+                    >
+
+                    <input
+                      class="form-control"
+                      id="totalFloors"
+                      maxlength="20"
+                      formControlName="totalFloors"
+                      placeholder="Total Floors"
+                      type="number"
+                      pInputText
+                    />
+                    <div
+                      *ngIf="
+                        f['totalFloors'].invalid &&
+                        (f['totalFloors'].dirty || f['totalFloors'].touched)
+                      "
+                      style="color: red; font-size: 13px"
+                    >
+                      <div *ngIf="f['totalFloors'].errors.required">
+                        <label>*Total Floors is required</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br />
+                <div class="row">
+                  <!-- maintenanceCharge -->
+                  <div class="col-md-4">
+                    <label for="maintenanceCharge" style="font-weight: bold"
+                      >Maintenance Charge<span style="color: red"
+                        >*</span
+                      ></label
+                    >
+
+                    <input
+                      class="form-control"
+                      id="maintenanceCharge"
+                      maxlength="20"
+                      formControlName="maintenanceCharge"
+                      placeholder="Maintenance Charge"
+                      type="text"
+                      pInputText
+                    />
+                    <div
+                      *ngIf="
+                        f['maintenanceCharge'].invalid &&
+                        (f['maintenanceCharge'].dirty ||
+                          f['maintenanceCharge'].touched)
+                      "
+                      style="color: red; font-size: 13px"
+                    >
+                      <div *ngIf="f['maintenanceCharge'].errors.required">
+                        <label>*Maintenance Charge is required</label>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- description -->
+                  <div class="col-md-4">
+                    <label for="description" style="font-weight: bold"
+                      >Description<span style="color: red">*</span></label
+                    >
+
+                    <input
+                      class="form-control"
+                      id="description"
+                      maxlength="20"
+                      formControlName="description"
+                      placeholder="Description"
+                      type="text"
+                      pInputText
+                    />
+                    <div
+                      *ngIf="
+                        f['description'].invalid &&
+                        (f['description'].dirty || f['description'].touched)
+                      "
+                      style="color: red; font-size: 13px"
+                    >
+                      <div *ngIf="f['description'].errors.required">
+                        <label>*Description is required</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br />
+            <p-footer>
+              <div>
+                <p-button label="Create" (click)="onSubmit()"></p-button>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <p-button label="Close" (click)="onHidden()"></p-button>
+              </div>
+            </p-footer>
+          </div>
+        </p-tabPanel>
+        <p-tabPanel header="Header II">
+          <ng-template pTemplate="header">
+            <i class="pi pi-user"></i>
+            <span>Agent</span>
+          </ng-template>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </p-tabPanel>
+        <p-tabPanel header="Header III">
+          <ng-template pTemplate="header">
+            <i class="pi pi-user"></i>
+            <span>Builder</span>
+            <!-- <i class="pi pi-cog"></i> -->
+          </ng-template>
+          <p>
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui
+            blanditiis praesentium voluptatum deleniti atque corrupti quos
+            dolores et quas molestias excepturi sint occaecati cupiditate non
+            provident, similique sunt in culpa qui officia deserunt mollitia
+            animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis
+            est et expedita distinctio. Nam libero tempore, cum soluta nobis est
+            eligendi optio cumque nihil impedit quo minus.
+          </p>
+        </p-tabPanel>
+      </p-tabView>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+</div>

@@ -1,0 +1,87 @@
+<div class="content" style="background-color: rgb(14, 113, 241)">
+  <div class="row">
+    <div class="col-md-12">
+      <ngx-slick-carousel
+        class="carousel"
+        responsize="breakpoints"
+        #slickModal="slick-carousel"
+        [config]="slideConfig"
+      >
+        <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+          <img class="croimage" src="{{ slide.img }}" alt="" />
+        </div>
+      </ngx-slick-carousel>
+    </div>
+  </div>
+</div>
+
+<br />
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="body">
+        <p-table
+          #dt
+          [columns]="columns"
+          [value]="tableList"
+          [responsive]="true"
+          [paginator]="true"
+          [rows]="10"
+          sortMode="single"
+          [rowsPerPageOptions]="[5, 10, 25, 50]"
+          styleClass="p-datatable-gridlines"
+          (onLazyLoad)="loadLazy($event)"
+          [lazy]="true"
+          sortField="id"
+          [sortOrder]="-1"
+          [totalRecords]="totalRecords"
+          [loading]="loading"
+          [scrollable]="true"
+          scrollHeight="700px"
+          [autoLayout]="true"
+        >
+          <ng-template pTemplate="body" let-accp>
+            <tr>
+              <td>
+                <ul class="card-wrapper">
+                  <li class="card">
+                    <img src="{{ accp.image }}" alt="" />
+                    <h3>
+                      <a href="">{{ accp.name }}</a>
+                    </h3>
+                    <p>{{ accp.description }}</p>
+                  </li>
+                </ul>
+                <!--Extra-->
+                <ul class="card-wrapper">
+                  <li class="card">
+                    <img src="{{ accp.image }}" alt="" />
+                    <h3>
+                      <a href="">{{ accp.name }}</a>
+                    </h3>
+                    <p>{{ accp.description }}</p>
+                  </li>
+                </ul>
+                <!--Extra-->
+                <ul class="card-wrapper">
+                  <li class="card">
+                    <img src="{{ accp.image }}" alt="" />
+                    <h3>
+                      <a href="">{{ accp.name }}</a>
+                    </h3>
+                    <p>{{ accp.description }}</p>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="summary">
+            Showing {{ totalRecords === 0 ? 0 : dt.first + 1 }} to
+            {{ totalRecords === 0 ? 0 : dt.first + dt.value.length }} of
+            {{ totalRecords === 0 ? 0 : totalRecords }}
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </div>
+</div>

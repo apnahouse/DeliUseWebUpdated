@@ -1,0 +1,178 @@
+<!-- <div class="user-btn">
+  <button
+    class="btn btn-secondary1 dropdown-toggle"
+    type="button"
+    id="dropdownMenu2"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    <img src="./../../../assets/img/profile.jpg" /><label
+      style="color: black; font-size: 14px"
+      >{{ this.username }}</label
+    >
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <ul>
+      <li class="dropdown-item">
+        <div style="cursor: pointer" routerLink="src/app/views/profile">
+          <i class="pi pi-user"></i>&nbsp;<span>Profile</span>
+        </div>
+      </li>
+      <li class="dropdown-item">
+        <a style="cursor: pointer" (click)="changePassword()"
+          ><i class="pi pi-lock-open" aria-hidden="true"></i>&nbsp;<span
+            >Change Password</span
+          ></a
+        >
+      </li>
+      <li class="dropdown-item">
+        <a style="cursor: pointer" (click)="logout()"
+          ><i class="pi pi-power-off"></i>&nbsp;<span>Logout</span></a
+        >
+      </li>
+    </ul>
+  </div>
+</div> -->
+
+<!--
+<div class="logoContainer">
+<div class="logo">
+    <img style="height: 80px;width: 80px;border: 0;" src="../../../assets/img/DeliUse.jpeg"/>
+    <div class="searchContainer">
+      <input type="text" style="width: 300px;" placeholder="Find Cars,Mobile Phones and more"/>
+      <i  style="width: 300px;" class="fa-search"></i>
+    </div>
+
+</div>
+
+
+</div> -->
+
+<!-- <header>
+
+
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="navbar-brand align-item-center d-flex">
+      <img
+      align="center"
+        style="
+          margin-left: 15px;
+          height: 30px;
+          width: 30px;
+          margin-right: 15px;
+          margin-top: 3px;
+        "
+        src="../../../assets/img/DeliUse-modified.png"
+      />
+      <strong routerLink="/products"  style="font-size: 3opx;justify-content: center;align-items: center;">DeliUse</strong>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search product"
+        />
+      </div>
+      <span class="fas fa-search search-icon"></span>
+    </div>
+    <button
+    type="button"
+    class="btn btn-dark"
+  >
+    <div style="font-size: 20px; font-weight: 600;color: white;">About Us</div>
+  </button>
+  <button
+  type="button"
+  class="btn btn-dark"
+  
+>
+  <div style="font-size: 20px; font-weight: 600;color:white">Contact Us</div>
+</button>
+<button
+  type="button"
+  class="btn btn-dark"
+  
+>
+  <div style="font-size: 20px; font-weight: 600;color:white">Privacy Policy</div>
+</button>
+<button
+  type="button"
+  class="btn btn-dark"
+  
+>
+  <div style="font-size: 20px; font-weight: 600;color: white;">Feedback</div>
+</button>
+    <button
+      type="button"
+      class="btn btn-dark"
+      style="margin-right: 5px"
+    >
+      <div style="font-size: 20px; font-weight: 600;color: white;">Login</div>
+    </button>
+  </div>
+</header> -->
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark text-bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img
+          align="center"
+          style="
+            height: 30px;
+            width: 30px;
+            margin-top: 3px;
+          "
+          src="../../../assets/img/DeliUse-modified.png"
+      /></a>
+      <form class="d-flex formSearch">
+        <input
+          class="form-control"
+          type="search"
+
+          placeholder="Search Product"
+          aria-label="Search"
+        />
+       
+        <!-- <button class="btn btn-outline-secondary" type="submit">Search</button> -->
+      </form>
+      <button
+        class="navbar-toggler text-white"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon text-white"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-lg-0 text-400">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"> Privacy Policy</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"> Feedback</a>
+          </li>
+          <li  class="nav-item">
+            <a  *ngIf="ishide==false" class="nav-link" aria-current="page" (click)="login()">Login</a>
+          </li>
+          <li  class="nav-item">
+            <a *ngIf="ishide==true" class="nav-link" aria-current="page" (click)="profile()">My Profile</a>
+          </li>
+          <li  class="nav-item">
+            <a *ngIf="ishide==true" class="nav-link"  (click)="logout()" aria-current="page">Logout</a>
+          </li>
+        </ul>
+       
+      </div>
+    </div>
+  </nav>
+</header>

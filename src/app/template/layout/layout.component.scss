@@ -1,0 +1,287 @@
+// /* Remove the navbar's default margin-bottom and rounded borders */
+// .navbar {
+//   margin-bottom: 0;
+//   border-radius: 0;
+//   /* background: #2e363f; */
+//   background: linear-gradient(to top, #a6cde4, #bee0ec) !important; //#a6cde4;
+// }
+
+// /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+// // .row.content {
+// //   height: calc(100vh - 122px);
+// // }
+
+// /* Set gray background color and 100% height */
+// .sidenav {
+//   padding-top: 0px; //20px
+//   //background: #08b4ac; //#0f3b71;
+//   background: linear-gradient(to top, #004aad, #bee0ec) !important;
+//   position: fixed;
+//   left: 0;
+//   top: 0;
+//   width: 16.666667%;
+//   height: 94%;
+//   z-index: 9;
+//   text-align: center;
+//   // overflow-y: auto;
+//   // overflow-x: hidden;
+// }
+// .col-sm-2t {
+//   width: 16.666667%;
+//   display: inline-block;
+// }
+// .navbar-brand {
+//   color: white;
+// }
+
+// .navbar-brand img {
+//   margin-bottom: 23px;
+// }
+
+// .sidenav .navbar-brand {
+//   text-align: center;
+//   display: block;
+//   margin: 0;
+//   padding: 0;
+// }
+
+// .header {
+//   position: fixed;
+//   width: 100%;
+//   top: 0;
+//   left: 0;
+//   z-index: 9;
+//   box-shadow: 0 0 10px rgb(0 0 0 / 30%);
+// }
+
+// #left-panel ul {
+//   padding: 0;
+// }
+
+// .sidenav li {
+//   margin-bottom: 1px;
+//   padding: 8px;
+//   display: table;
+//   width: 100%;
+//   color: #fff;
+// }
+
+// .sidenav li > a {
+//   color: #fff;
+//   width: 100%;
+//   display: block;
+// }
+// /* &:hover {
+//           text-decoration: none;
+//       } */
+
+// .sidenav li a .fa {
+//   margin-right: 4px;
+// }
+
+// .sidenav .show a::after {
+//   transform: rotate(180deg);
+// }
+
+// .sidenav .dropdown-toggle::after {
+//   right: 15px;
+//   position: absolute;
+//   top: 20px;
+// }
+
+// .sidenav .sub-menu {
+//   transform: none !important;
+//   width: 100%;
+//   position: relative !important;
+//   overflow: scroll;
+//   height: 250px;
+// }
+
+// /* Set black background color, white text and some padding */
+// footer {
+//   clear: both;
+//   font-size: 13px;
+//   position: fixed;
+//   height: 38px;
+//   background-color: #000000e5;
+//   color: white;
+//   padding: 10px;
+//   bottom: 0;
+// }
+
+// /* On small screens, set height to 'auto' for sidenav and grid */
+// @media screen and (max-width: 767px) {
+//   .sidenav {
+//     height: auto;
+//     padding: 15px;
+//   }
+//   .row.content {
+//     height: auto;
+//   }
+// }
+
+/* Remove the navbar's default margin-bottom and rounded borders */
+
+/* Set gray background color and 100% height */
+.sidenav {
+  background: linear-gradient(to top, #1e57a1, #1e57a1) !important; //#004aad;
+  display: block;
+}
+.navbar-brand {
+  color: #0a86b3;
+}
+.header {
+  box-shadow: 0 0 10px rgb(0 0 0 / 30%);
+}
+#left-panel ul {
+  padding: 0;
+}
+.sidenav li {
+  margin-bottom: 1px;
+  padding: 8px;
+  display: table;
+  width: 100%;
+  color: #fff;
+}
+.sidenav li > a {
+  color: #fff;
+  width: 100%;
+  display: block;
+}
+
+.sidenav li a .fa {
+  margin-right: 4px;
+}
+.sidenav .show a::after {
+  transform: rotate(180deg);
+}
+.sidenav .dropdown-toggle::after {
+  right: 15px;
+  position: absolute;
+  top: 20px;
+}
+.sidenav .sub-menu {
+  transform: none !important;
+  width: 100%;
+  position: relative !important;
+  /* overflow: scroll;
+height: 250px;  */
+}
+
+/* Set black background color, white text and some padding */
+footer {
+  clear: both;
+  font-size: 13px;
+  position: relative; //fixed
+  height: 100%;
+  background-color: #282d32; //#000000e5;
+  color: white;
+  padding: 10px;
+  bottom: 0;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+  .sidenav {
+    height: auto;
+    padding: 0px;
+  }
+  .row.content {
+    height: auto;
+  }
+}
+
+*{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+}
+
+.header{
+  background-color: black;
+  height:60px;
+}
+
+.searchContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 300px;
+  max-width: 500px;
+  background-color: white;
+}
+
+/* .navbar {
+margin-bottom: 0;
+border-radius: 0;
+background: rgb(255 255 255);
+box-shadow: 0 0 10px rgb(0 0 0 / 30%);
+z-index: 9;
+}
+
+.row.content {
+height: calc(100vh - 123px);
+}
+
+.sidenav {
+padding-top: 20px;
+background: #219789;
+height: 100%;
+}
+#left-panel ul {
+padding: 0;
+}
+.sidenav li {
+margin-bottom: 1px;
+padding: 8px;
+display: table;
+width: 100%;
+color: #fff;
+}
+.sidenav li > a {
+color: #fff;
+width: 100%;
+display: block;
+}
+
+.sidenav li a .fa {
+margin-right: 4px;
+}
+.sidenav .show a::after {
+transform: rotate(180deg);
+}
+.sidenav .dropdown-toggle::after {
+right: 15px;
+position: absolute;
+top: 20px;
+}
+
+.sidenav .sub-menu {
+transform: none !important;
+width: 100%;
+position: relative !important;
+}
+
+footer {
+position: relative;
+background-color: #000;
+color: rgb(247, 246, 239);
+padding: 15px;
+bottom: 0;
+font-size: 13px;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+@media screen and (max-width: 767px) {
+.sidenav {
+  height: auto;
+  padding: 15px;
+}
+.row.content {
+  height: auto;
+}
+}
+.text-left {
+height: 98%;
+overflow: scroll !important;
+} */

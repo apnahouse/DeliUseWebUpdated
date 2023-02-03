@@ -1,0 +1,447 @@
+<p-toast position="top-center"></p-toast>
+<div class="content">
+  <div class="headinng">User Master</div>
+  <div class="animated fadeIn">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+          <div class="body">
+            <p-table
+              #dt
+              [columns]="columns"
+              [value]="userMaster1"
+              [responsive]="true"
+              [paginator]="true"
+              [rowHover]="true"
+              [rows]="10"
+              sortMode="single"
+              [rowsPerPageOptions]="[5, 10, 25, 50]"
+              styleClass="p-datatable-gridlines"
+              (onLazyLoad)="loadLazy($event)"
+              [lazy]="true"
+              sortField="id"
+              [sortOrder]="-1"
+              [totalRecords]="totalRecords"
+              [loading]="loading"
+              [scrollable]="true"
+              scrollHeight="224px"
+              [autoLayout]="true"
+            >
+              <ng-template pTemplate="caption">
+                <div class="row">
+                  <div align="left" class="col-md-9">
+                    <p-button
+                      icon="fa fa-plus-circle"
+                      pTooltip="Add new user"
+                      tooltipPosition="top"
+                      label="Add User"
+                      (onClick)="showDialog()"
+                    ></p-button>
+                  </div>
+
+                  <div class="col-md-3">
+                    <div style="text-align: right" class="input-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        pInputText
+                        size="50"
+                        placeholder="Search"
+                        (input)="
+                          dt.filterGlobal($event.target.value, 'contains')
+                        "
+                      />
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+              <ng-template pTemplate="header" let-columns>
+                <tr>
+                  <th
+                    *ngFor="let col of columns"
+                    [pSortableColumn]="col.field"
+                    pResizableColumn
+                  >
+                    {{ col.header }}
+                    <p-sortIcon
+                      [field]="col.field"
+                      ariaLabel="Activate to sort"
+                      ariaLabelDesc="Activate to sort in descending order"
+                      ariaLabelAsc="Activate to sort in ascending order"
+                    >
+                    </p-sortIcon>
+                  </th>
+                  <th>Active</th>
+                  <th>Action</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-accp let-columns="columns">
+                <tr>
+                  <td *ngFor="let col of columns">
+                    {{ accp[col.field] }}
+                  </td>
+                  <td>
+                    <input
+                      class="inputChange"
+                      type="checkbox"
+                      [checked]="accp.isActive"
+                      disabled
+                    />
+                  </td>
+                  <td>
+                    <span pTooltip="Edit Row" tooltipPosition="top">
+                      <p-button (click)="editDialog(accp)"
+                        ><i class="fa fa-pencil-square-o"></i>
+                      </p-button>
+                    </span>
+                  </td>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="summary">
+                Showing {{ totalRecords === 0 ? 0 : dt.first + 1 }} to
+                {{ totalRecords === 0 ? 0 : dt.first + dt.value.length }} of
+                {{ totalRecords === 0 ? 0 : totalRecords }}
+              </ng-template>
+            </p-table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p-dialog
+  [(visible)]="display"
+  appendToBody="true"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="true"
+  [style]="{ height: '500px', width: '60%' }"
+>
+  <p-header *ngIf="this.usrForm.get('id').value == 0"> Create User </p-header>
+  <p-header *ngIf="this.usrForm.get('id').value !== 0"> Edit User </p-header>
+  <div [formGroup]="usrForm">
+    <div class="row rowspeding3">
+      <!-- First Name -->
+      <div class="col-md-4">
+        <label for="FirstName" style="font-weight: bold"
+          >First Name<span style="color: red">*</span></label
+        >
+        <input
+          autofocus
+          class="form-control"
+          id="FirstName"
+          style="width: 200px; height: 30px"
+          maxlength="50"
+          [readOnly]="IsDisabled"
+          formControlName="firstName"
+          type="text"
+          placeholder="First Name"
+          pInputText
+        />
+        <div
+          *ngIf="
+            f['firstName'].invalid &&
+            (f['firstName'].dirty || f['firstName'].touched)
+          "
+          style="color: red; font-size: 13px"
+        >
+          <div *ngIf="f['firstName'].errors.required">
+            <label>*First Name is required</label>
+          </div>
+        </div>
+      </div>
+      <!-- Last Name -->
+      <div class="col-md-4">
+        <label for="LastName" style="font-weight: bold"
+          >Last Name<span style="color: red">*</span></label
+        >
+
+        <input
+          class="form-control"
+          id="LastName"
+          maxlength="50"
+          style="width: 200px; height: 30px"
+          [readOnly]="IsDisabled"
+          formControlName="lastName"
+          placeholder="Last Name"
+          type="text"
+          pInputText
+        />
+        <div
+          *ngIf="
+            f['lastName'].invalid &&
+            (f['lastName'].dirty || f['lastName'].touched)
+          "
+          style="color: red; font-size: 13px"
+        >
+          <div *ngIf="f['lastName'].errors.required">
+            <label>*Last Name is required</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Number -->
+      <div class="col-md-4">
+        <label for="MobileNo" style="font-weight: bold"
+          >Mobile No<span style="color: red; font-weight: 500"
+            >&nbsp;(User Id)*</span
+          ></label
+        >
+        <input
+          class="form-control"
+          id="MobileNo"
+          type="number"
+          style="width: 200px; height: 30px"
+          [readOnly]="IsDisabled"
+          (keydown)="onKeydown($event)"
+          oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+          maxlength="10"
+          [pattern]="mobileReg"
+          formControlName="mobileNo"
+          placeholder="Mobile No"
+          pInputText
+        />
+        <div
+          *ngIf="
+            f['mobileNo'].invalid &&
+            (f['mobileNo'].dirty || f['mobileNo'].touched)
+          "
+          style="color: red; font-size: 13px"
+        >
+          <div *ngIf="f['mobileNo'].errors.required">
+            <label>*Mobile No. is required</label>
+          </div>
+          <div *ngIf="f['mobileNo'].errors.pattern">
+            <label>*Invalid Mobile No.</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div class="row rowspeding3">
+      <!-- Email Address -->
+      <div class="col-md-4">
+        <label for="Email"><b>Email</b></label>
+        <input
+          class="form-control"
+          id="Email"
+          maxlength="50"
+          [pattern]="emailReg"
+          style="width: 200px; height: 30px"
+          formControlName="email"
+          type="text"
+          placeholder="example@mail.com"
+          pInputText
+        />
+        <div
+          *ngIf="f['email'].invalid && (f['email'].dirty || f['email'].touched)"
+          style="color: red; font-size: 13px"
+        >
+          <div *ngIf="f['email'].errors.pattern">
+            <label>*Invalid Email Address</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- User Type -->
+      <div class="col-md-4">
+        <label for="UserType" style="font-weight: bold"
+          >User Type<span style="color: red">*</span></label
+        >
+        <p-dropdown
+          autoWidth="false"
+          appendTo="body"
+          [style]="{ width: '100%' }"
+          [options]="listUserType"
+          placeholder="User Type"
+          (onChange)="OnUserTypeChange($event)"
+          formControlName="userTypeId"
+          optionLabel="userType"
+          [disabled]="IsDisabled"
+          required
+        ></p-dropdown>
+        <ng-container
+          *ngIf="
+            f['userTypeId'].errors &&
+            (f['userTypeId'].dirty || f['userTypeId'].touched)
+          "
+        >
+          <div
+            *ngIf="f['userTypeId'].errors.required"
+            class="invalid-feedbacks"
+            style="color: red"
+          >
+            *User Type is Required
+          </div>
+        </ng-container>
+      </div>
+      <!--Password-->
+      <div class="col-md-4">
+        <label for="Password" style="font-weight: bold"
+          >Password<span
+            *ngIf="this.usrForm.get('id').value == 0"
+            style="color: red"
+            >*</span
+          ></label
+        >
+        <input
+          class="form-control"
+          type="password"
+          maxlength="30"
+          formControlName="userPassword"
+          placeholder="Password"
+          required
+        />
+        <ng-container
+          *ngIf="
+            f['userPassword'].errors &&
+            (f['userPassword'].dirty || f['userPassword'].touched)
+          "
+        >
+          <div
+            *ngIf="f['userPassword'].errors.required"
+            class="invalid-feedbacks"
+            style="color: red"
+          >
+            *Password is Required
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <br />
+
+    <div>
+      <div class="row rowspeding3">
+        <!-- User Image -->
+        <div class="col-md-6">
+          <label style="font-weight: bold"
+            >User Image<span style="color: red" class="redmark">*</span></label
+          >
+          <p-fileUpload
+            auto="true"
+            (onUpload)="onUploadProdImg($event)"
+            [files]="tmpF"
+            (onBeforeUpload)="onBeforeUpload($event)"
+            name="file"
+            url="api/api/Utility/FileUpload"
+            accept="image/*"
+            maxFileSize="1000000"
+          >
+            <!-- https://localhost:44381/api/Utility/FileUpload -->
+            <ng-template pTemplate="toolbar">
+              <div></div>
+            </ng-template>
+            <ng-template let-file pTemplate="file"> </ng-template>
+            <ng-template pTemplate="content">
+              <div *ngIf="userImges.length > 0">
+                <div *ngFor="let imageProd of userImges">
+                  <img
+                    style="max-width: 100px; max-height: 100px"
+                    [src]="imageProd"
+                  />
+                  <a href="javascript:void(0)" (click)="removeImg(imageProd)">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+            </ng-template>
+          </p-fileUpload>
+        </div>
+        <div class="col-md-2">
+          <label for="isActive" style="font-weight: bold">IsActive</label>
+          <br />
+          <p-checkbox
+            readonly="ControlIsActive"
+            formControlName="isActive"
+            binary="true"
+          ></p-checkbox>
+          <br />
+          <label for="user" style="font-weight: bold">Verify User</label>
+          <br />
+          <div>
+            <p-checkbox
+              formControlName="isVerified"
+              binary="true"
+              [value]="true"
+            ></p-checkbox>
+            <!-- &nbsp;
+            <label for="Web"><b>Web</b></label> -->
+          </div>
+
+          <label for="user" style="font-weight: bold">Block User</label>
+          <br />
+          <div>
+            <p-checkbox
+              formControlName="isBlocked"
+              binary="true"
+              [value]="true"
+            ></p-checkbox>
+            <!-- &nbsp;
+            <label for="Web"><b>Web</b></label> -->
+          </div>
+        </div>
+        <div class="col-md-2">
+          <p-button
+            [hidden]="this.approveButton"
+            label="Approve User"
+            (click)="onSubmit()"
+          ></p-button>
+        </div>
+        <!-- Channel -->
+        <!-- <div class="col-md-2">
+          <label for="user" style="font-weight: bold">Channel</label>
+          <br />
+          <div>
+            <p-checkbox
+              formControlName="isWeb"
+              binary="true"
+              [value]="true"
+            ></p-checkbox>
+            &nbsp;
+            <label for="Web"><b>Web</b></label>
+          </div>
+          <div>
+            <p-checkbox
+              formControlName="isMobile"
+              binary="true"
+              [value]="true"
+            ></p-checkbox>
+            &nbsp;
+            <label for="Mobile"><b>Mobile</b></label>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <br />
+    <div class="row rowspeding3">
+      <!-- Is Active -->
+    </div>
+    <br />
+    <p-footer>
+      <div *ngIf="this.usrForm.get('id').value == 0">
+        <p-button
+          label="Create"
+          [disabled]="!usrForm.valid"
+          (click)="onSubmit()"
+        ></p-button>
+        <p-button
+          style="padding-left: 10px"
+          label="Close"
+          (click)="onHidden()"
+        ></p-button>
+      </div>
+      <div *ngIf="this.usrForm.get('id').value != 0">
+        <p-button
+          label="Update"
+          [disabled]="!usrForm.valid"
+          (click)="onSubmit()"
+        ></p-button>
+        <p-button
+          style="padding-left: 10px"
+          label="Close"
+          (click)="onHidden()"
+        ></p-button>
+      </div>
+    </p-footer>
+  </div>
+</p-dialog>

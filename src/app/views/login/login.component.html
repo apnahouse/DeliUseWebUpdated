@@ -1,0 +1,148 @@
+ <div class="login-bg">
+  <form class="form-wraper" [formGroup]="loginForm" novalidate>
+    <div class="logo-wraper text-center">
+      <img style="height: 200px" src="./../../../assets/img/DeliUse.jpeg" />
+    </div>
+    <div class="form-group">
+      <label class="login-text">Mobile No./Email ID:</label>
+      <input
+        autofocus
+        type="text"
+        formControlName="username"
+        placeholder="Username"
+        class="form-control"
+        required
+      />
+      
+      <div
+        *ngIf="
+          f['username'].errors && (f['username'].dirty || f['username'].touched)
+        "
+        class="redmark"
+      >
+        <ng-container *ngIf="f['username'].errors['required']">
+          *Mobile No./Email ID  is required
+        </ng-container>
+        <ng-container *ngIf="f.username.errors.pattern">
+          *Enter valid username
+        </ng-container>
+      </div>
+    </div>
+    <br />
+    <div class="form-group">
+      <label class="login-text">Password:</label>
+      <input
+        type="password"
+        formControlName="password"
+        placeholder="Password"
+        class="form-control"
+        required
+      />
+      <div
+        *ngIf="
+          f['password'].errors && (f['password'].dirty || f['password'].touched)
+        "
+        class="redmark"
+      >
+        <ng-container *ngIf="f['password'].errors['required']">
+          *Password is required
+        </ng-container>
+      </div>
+    </div>
+    <div
+      align="right"
+      class="col-md-12"
+      style="font-size: 14px; font-weight: 510; margin-bottom: 3px"
+    >
+      <a (click)="handleForgotPassword()" href="javascript:void(0)">
+        Forgot Password ?
+      </a>
+    </div>
+    <button
+      type="submit"
+      class="btn btn-success"
+      (click)="submitForm()"
+      [disabled]="loginForm.invalid"
+    >
+      Login
+    </button>
+  </form>
+</div>
+
+<div
+  *ngIf="isModalShown"
+  [config]="{ show: true, ignoreBackdropClick: true }"
+  (onHidden)="closeResetPassModal()"
+  bsModal
+  #modalusermaster="bs-modal"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="dialog-auto-name"
+>
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title pull-left">Reset Password</h6>
+        <button
+          type="button"
+          class="close pull-right"
+          aria-label="Close"
+          (click)="closeResetPassModal()"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p class="text-center">
+          We will send reset instructions to associated email address.
+        </p>
+        <form
+          [formGroup]="formRestPassword"
+          (ngSubmit)="onResetPasswordSubmit()"
+          novalidate
+        >
+          <div class="row">
+          
+            <div class="col-md-12">
+              <input
+                id="email"
+                type="text"
+                formControlName="emailId"
+                required
+                class="form-control2 forgot-input"
+                name="text"
+                placeholder="Email"
+              />
+            </div>
+            <div
+              class="col redmark"
+              *ngIf="
+                freset['emailId'].invalid &&
+                (freset['emailId'].dirty ||
+                  freset['emailId'].touched ||
+                  resetFormSubmitted)
+              "
+              style="color: red; font-size: 13px"
+            >
+              <div *ngIf="freset['emailId'].errors['required']">
+                *Enter required field.
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div *ngIf="forgotPasswordMessage" class="text-center">
+              <p style="font-size: 12px">{{ forgotPasswordMessage }}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div align="right" class="col-md-12" style="padding-top: 2%">
+              <button class="btn btn-success" type="submit">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> 
