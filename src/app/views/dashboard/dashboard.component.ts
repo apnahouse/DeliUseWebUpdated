@@ -82,7 +82,6 @@ export class DashboardComponent implements OnInit {
     infinite: true,
   };
   ngOnInit(): void {
-    debugger;
     this.userMaster = this.loginService.user();
     if (this.userMaster != null) {
       this.istrue = false;

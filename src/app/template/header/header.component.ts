@@ -20,7 +20,6 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    debugger;
     this.user = this.loginService.user();
    // this.username = this.user.firstName + ' ' + this.user.lastName;
     if(this.user!=null)

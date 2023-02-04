@@ -1,38 +1,75 @@
 <app-header></app-header>
 <div class="container-fluid pt-5 pb-5">
-  <form class="form-group">
+  <form class="form-group" [formGroup]="form">
     <div class="row">
       <div class="col-sm-12 col-md-6 my-2">
-        <input class="form-control" type="text" pInputText placeholder="Post Title">
+        <input
+          class="form-control"
+          formControlName="PostTitle"
+          type="text"
+          pInputText
+          placeholder="Post Title"
+        />
       </div>
       <div class="col-sm-12 col-md-6 my-2">
-        <input class="form-control" type="text" pInputText placeholder="Price">
+        <input
+          class="form-control"
+          formControlName="Price"
+          type="text"
+          pInputText
+          placeholder="Price"
+        />
       </div>
       <div class="col-sm-12 col-md-6 my-2">
-        <p-dropdown placeholder="State" [showClear]="true"></p-dropdown>
+        <p-dropdown
+          placeholder="State"
+          formControlName="State"
+          [options]="stateList"
+          optionLabel="stateName"
+          optionValue="stateId"
+          (onChange)="onStateChange($event)"
+          [showClear]="true"
+        ></p-dropdown>
       </div>
       <div class="col-sm-12 col-md-6 my-2">
-        <p-dropdown placeholder="City" [showClear]="true"></p-dropdown>
+        <p-dropdown
+          placeholder="City"
+          formControlName="City"
+          [options]="cityList"
+          optionLabel="cityName"
+          optionValue="cityId"
+          [showClear]="true"
+        ></p-dropdown>
       </div>
       <div class="col-sm-12 col-md-6 my-2">
-        <input class="form-control" type="text" pInputText placeholder="Description">
+        <input
+          class="form-control"
+          formControlName="Description"
+          type="text"
+          pInputText
+          placeholder="Description"
+        />
       </div>
       <div class="col-sm-12 col-md-12 my-2">
-        <div class="border_daes w-50  mx-auto" (click)="imageUpload()">
+        <div class="border_daes w-50 mx-auto" (click)="imageUpload()">
           <div class="mx-auto text-center my-2 pt-3">
-            <img src="../../../../../assets/img/addImage.png" width="45px" height="45px">
+            <img
+              src="../../../../../assets/img/addImage.png"
+              width="45px"
+              height="45px"
+            />
           </div>
-          <p class="text-center fw-bolder">Add Furniture image</p>
+          <p class="text-center fw-bolder">Add Electronics image</p>
           <p class="text-center text-danger fw-semibold">+ Add New</p>
-          <p class="text-center text-secondary fw-semibold pb-3">.jpg,.png and jpeg</p>
+          <p class="text-center text-secondary fw-semibold pb-3">
+            .jpg,.png and jpeg
+          </p>
         </div>
       </div>
     </div>
     <div class="row me-2">
-      <div class="col-sm-12 col-md-12 text-end  my-2">
-        <button class="btn btn-dark">
-          Submit
-        </button>
+      <div class="col-sm-12 col-md-12 text-end my-2">
+        <button class="btn btn-dark" (click)="onSave()">Submit</button>
       </div>
     </div>
   </form>

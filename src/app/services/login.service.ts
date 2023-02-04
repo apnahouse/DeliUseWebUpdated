@@ -51,7 +51,6 @@ export class LoginService {
   }
 
   loginUser(login: any): any {
-    debugger;
     return this.httpClient.post<any>(`${this.url}/api/Login/Login`, login);
   }
 
@@ -62,7 +61,6 @@ export class LoginService {
   }
 
   getPagesById(role) {
-    debugger;
     return this.httpClient.post<any>(
       `${this.url}/api/RoleMaster/PageGetAllByUser`,
       role

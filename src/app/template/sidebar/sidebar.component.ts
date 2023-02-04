@@ -19,7 +19,6 @@ export class SidebarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    debugger;
     this.user = this.loginService.user();
     if (localStorage['token'] === 'admin@co.in') {
       // this.getMenu1({ roleId: '0' });
@@ -27,7 +26,6 @@ export class SidebarComponent implements OnInit {
       //   this.getMenu1({ roleId: '0' });
       // });
     } else {
-      debugger;
       this.getMenu({
         role: this.user.role, // ? JSON.stringify(this.user.role) : null
       });
@@ -40,10 +38,8 @@ export class SidebarComponent implements OnInit {
   }
 
   getMenu(obj: any) {
-    debugger;
     this.loginService.getPagesById(obj).subscribe(
       (roles: any) => {
-        debugger;
         if (roles.responseCode === '200') {
           console.log(roles);
           this.menu = roles;
