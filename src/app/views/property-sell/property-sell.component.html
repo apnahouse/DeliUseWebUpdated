@@ -3,44 +3,92 @@
   <form class="form-group" [formGroup]="form">
     <div class="row">
       <div class="col-sm-12 col-md-6 my-2">
-        <p-dropdown placeholder="I am" [showClear]="true"></p-dropdown>
-      </div>
-      <div class="col-sm-12 col-md-6 my-2">
-        <p-dropdown placeholder="I want to" [showClear]="true"></p-dropdown>
-      </div>
-      <div class="col-sm-12 col-md-6 my-2">
-        <p-dropdown placeholder="Property type" [showClear]="true"></p-dropdown>
-      </div>
-      <div class="col-sm-12 col-md-6 my-2">
         <p-dropdown
-          placeholder="What kind of property"
+          placeholder="I am"
+          formControlName="TypeOfUser"
+          [options]="realEsateUser"
+          optionLabel="realEstateUser"
+          optionValue="id"
           [showClear]="true"
         ></p-dropdown>
       </div>
       <div class="col-sm-12 col-md-6 my-2">
-        <p-dropdown placeholder="Property age" [showClear]="true"></p-dropdown>
+        <p-dropdown
+          placeholder="I want to"
+          formControlName="Action"
+          [options]="action"
+          optionLabel="action"
+          optionValue="id"
+          [showClear]="true"
+        ></p-dropdown>
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <p-dropdown
+          placeholder="Property type"
+          formControlName="Type"
+          [options]="propertyType"
+          optionLabel="propertyType"
+          optionValue="id"
+          [showClear]="true"
+        ></p-dropdown>
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <p-dropdown
+          placeholder="What kind of property"
+          formControlName="KindOfProperty"
+          [options]="kindOfProperty"
+          optionLabel="propertyKind"
+          optionValue="id"
+          [showClear]="true"
+        ></p-dropdown>
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <p-dropdown
+          placeholder="Property age"
+          formControlName="Age"
+          [options]="propertyAge"
+          optionLabel="age"
+          optionValue="id"
+          [showClear]="true"
+        ></p-dropdown>
       </div>
       <div class="col-sm-12 col-md-6 my-2">
         <p-dropdown
           placeholder="Property on floor"
+          formControlName="Floor"
+          [options]="propertyFloor"
+          optionLabel="floor"
+          optionValue="id"
           [showClear]="true"
         ></p-dropdown>
       </div>
       <div class="col-sm-12 col-md-6 my-2">
         <p-dropdown
           placeholder="Property facing"
+          formControlName="Facing"
+          [options]="propertyFacing"
+          optionLabel="facing"
+          optionValue="id"
           [showClear]="true"
         ></p-dropdown>
       </div>
       <div class="col-sm-12 col-md-6 my-2">
         <p-dropdown
           placeholder="Property available from"
+          formControlName="Availability"
+          [options]="propertyAvailability"
+          optionLabel="availability"
+          optionValue="id"
           [showClear]="true"
         ></p-dropdown>
       </div>
       <div class="col-sm-12 col-md-6 my-2">
         <p-dropdown
           placeholder="Property furnishing"
+          formControlName="FurnishingType"
+          [options]="furnishingType"
+          optionLabel="furnishingType"
+          optionValue="id"
           [showClear]="true"
         ></p-dropdown>
       </div>
@@ -77,10 +125,25 @@
         />
       </div>
       <div class="col-sm-12 col-md-6 my-2">
-        <p-dropdown placeholder="State" [showClear]="true"></p-dropdown>
+        <p-dropdown
+          placeholder="State"
+          formControlName="State"
+          [options]="stateList"
+          optionLabel="stateName"
+          optionValue="stateId"
+          (onChange)="onStateChange($event)"
+          [showClear]="true"
+        ></p-dropdown>
       </div>
       <div class="col-sm-12 col-md-6 my-2">
-        <p-dropdown placeholder="City" [showClear]="true"></p-dropdown>
+        <p-dropdown
+          placeholder="City"
+          formControlName="City"
+          [options]="cityList"
+          optionLabel="cityName"
+          optionValue="cityId"
+          [showClear]="true"
+        ></p-dropdown>
       </div>
       <div class="col-sm-12 col-md-6 my-2">
         <input

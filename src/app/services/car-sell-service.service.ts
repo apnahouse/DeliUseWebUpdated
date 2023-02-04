@@ -41,4 +41,41 @@ export class CarSellService {
       data
     );
   }
+
+  getRealEsateUser() {
+    return this.httpClient.get<any>(`${this.url}/api/RealEstate/GetRealEsateUser`);
+  }
+
+  getAction() {
+    return this.httpClient.get<any>(`${this.url}/api/RealEstate/GetAction`);
+  }
+
+  getKindOfProperty() {
+    return this.httpClient.get<any>(`${this.url}/api/RealEstate/GetKindOfProperty`);
+  }
+
+  getPropertyType() {
+    return this.httpClient.get<any>(`${this.url}/api/RealEstate/GetPropertyType`);
+  }
+
+  getPropertyAge() {
+    return this.httpClient.get<any>(`${this.url}/api/RealEstate/GetPropertyAge`);
+  }
+
+  getPropertyFacing() {
+    return this.httpClient.get<any>(`${this.url}/api/RealEstate/GetPropertyFacing`);
+  }
+
+  getPropertyFloor() {
+    return this.httpClient.get<any>(`${this.url}/api/RealEstate/GetPropertyFloor`);
+  }
+
+  getPropertyAvailability() {
+    return this.httpClient.get<any>(`${this.url}/api/RealEstate/GetPropertyAvailability`);
+  }
+
+  getFurnishingType() {
+    return this.httpClient.get<any>(`${this.url}/api/RealEstate/GetFurnishingType`);
+  }
+
 }

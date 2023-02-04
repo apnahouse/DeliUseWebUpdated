@@ -86,7 +86,7 @@ export class MotorCycleSellComponent implements OnInit {
     formData.append('Image', this.form.get('Image').value);
     formData.append('Image1', this.form.get('Image1').value);
     formData.append('CreatedBy', this.form.get('CreatedBy').value);
-    this.carSellService.SaveCarSell(formData).subscribe((resp) => {
+    this.carSellService.SaveMotorCycleSell(formData).subscribe((resp) => {
       debugger;
     });
   }

@@ -13,6 +13,15 @@ import { StateService } from 'src/app/services/state-service.service';
 export class PropertySellComponent implements OnInit {
   public stateList = [];
   public cityList = [];
+  public realEsateUser = [];
+  public action = [];
+  public propertyType = [];
+  public kindOfProperty = [];
+  public propertyAge = [];
+  public propertyFloor = [];
+  public propertyFacing = [];
+  public propertyAvailability = [];
+  public furnishingType = [];
 
   public form: FormGroup;
 
@@ -26,6 +35,15 @@ export class PropertySellComponent implements OnInit {
 
   ngOnInit(): void {
     this.getState();
+    this.getRealEsateUser();
+    this.getAction();
+    this.getPropertyAge();
+    this.getFurnishingType();
+    this.getKindOfProperty();
+    this.getPropertyAvailability();
+    this.getPropertyFacing();
+    this.getPropertyFloor();
+    this.getPropertyType();
     this.initForm();
   }
 
@@ -78,6 +96,60 @@ export class PropertySellComponent implements OnInit {
     });
   }
 
+  getRealEsateUser() {
+    this.carSellService.getRealEsateUser().subscribe((resp) => {
+      this.realEsateUser = resp['details'];
+    });
+  }
+
+  getAction() {
+    this.carSellService.getAction().subscribe((resp) => {
+      this.action = resp['details'];
+    });
+  }
+
+  getPropertyType() {
+    this.carSellService.getPropertyType().subscribe((resp) => {
+      this.propertyType = resp['details'];
+    });
+  }
+
+  getKindOfProperty() {
+    this.carSellService.getKindOfProperty().subscribe((resp) => {
+      this.kindOfProperty = resp['details'];
+    });
+  }
+
+  getPropertyAge() {
+    this.carSellService.getPropertyAge().subscribe((resp) => {
+      this.propertyAge = resp['details'];
+    });
+  }
+
+  getPropertyFloor() {
+    this.carSellService.getPropertyFloor().subscribe((resp) => {
+      this.propertyFloor = resp['details'];
+    });
+  }
+
+  getPropertyFacing() {
+    this.carSellService.getPropertyFacing().subscribe((resp) => {
+      this.propertyFacing = resp['details'];
+    });
+  }
+
+  getPropertyAvailability() {
+    this.carSellService.getPropertyAvailability().subscribe((resp) => {
+      this.propertyAvailability = resp['details'];
+    });
+  }
+
+  getFurnishingType() {
+    this.carSellService.getFurnishingType().subscribe((resp) => {
+      this.furnishingType = resp['details'];
+    });
+  }
+
   onStateChange(event) {
     this.getCity();
   }
@@ -117,7 +189,7 @@ export class PropertySellComponent implements OnInit {
     formData.append('PropertyImage1', this.form.get('PropertyImage1').value);
     formData.append('CreatedBy', this.form.get('CreatedBy').value);
 
-    this.carSellService.SaveCarSell(formData).subscribe((resp) => {
+    this.carSellService.SavePropertySell(formData).subscribe((resp) => {
       debugger;
     });
   }
