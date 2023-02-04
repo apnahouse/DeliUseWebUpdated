@@ -1,0 +1,55 @@
+<app-header></app-header>
+<div class="container-fluid pt-5 pb-5">
+  <form class="form-group">
+    <div class="row">
+      <div class="col-sm-12 col-md-6 my-2">
+        <input class="form-control" type="text" pInputText placeholder="Post Title">
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <input class="form-control" type="text" pInputText placeholder="Brand">
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <input class="form-control" type="text" pInputText placeholder="Year">
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <input class="form-control" type="text" pInputText placeholder="Fuel Type">
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <input class="form-control" type="text" pInputText placeholder="Transmission Type">
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <input class="form-control" type="text" pInputText placeholder="No. Of Owners">
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <input class="form-control" type="text" pInputText placeholder="Price">
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <p-dropdown placeholder="State" [showClear]="true"></p-dropdown>
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <p-dropdown placeholder="City" [showClear]="true"></p-dropdown>
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <input class="form-control" type="text" pInputText placeholder="Description">
+      </div>
+      <div class="col-sm-12 col-md-12 my-2">
+        <div class="border_daes w-50  mx-auto" (click)="imageUpload()">
+          <div class="mx-auto text-center my-2 pt-3">
+            <img src="../../../../../assets/img/addImage.png" width="45px" height="45px">
+          </div>
+          <p class="text-center fw-bolder">Add Car image</p>
+          <p class="text-center text-danger fw-semibold">+ Add New</p>
+          <p class="text-center text-secondary fw-semibold pb-3">.jpg,.png and jpeg</p>
+        </div>
+      </div>
+    </div>
+    <div class="row me-2">
+      <div class="col-sm-12 col-md-12 text-end  my-2">
+        <button class="btn btn-dark">
+          Submit
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+<app-footer></app-footer>

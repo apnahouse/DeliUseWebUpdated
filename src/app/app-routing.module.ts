@@ -2,14 +2,21 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuardService } from 'src/auth/auth-guard.service';
 import { LayoutComponent } from './template/layout/layout.component';
+import { CarSellComponent } from './views/car-sell/car-sell.component';
 import { CategoryComponent } from './views/category/category.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { DataViewComponent } from './views/DataView/DataView.component';
+import { ElectronicsSellComponent } from './views/electronics-sell/electronics-sell.component';
+import { FurnitureSellComponent } from './views/furniture-sell/furniture-sell.component';
 import { InboxComponent } from './views/Inbox/Inbox.component';
 import { LoginComponent } from './views/login/login.component';
+import { MobileSellComponent } from './views/mobile-sell/mobile-sell.component';
+import { MotorCycleSellComponent } from './views/motor-cycle-sell/motor-cycle-sell.component';
 import { ProductDescriptionComponent } from './views/productDescription/productDescription.component';
 import { ProfileComponent } from './views/profile/profile.component';
+import { PropertySellComponent } from './views/property-sell/property-sell.component';
 import { PropertyComponent } from './views/property/property.component';
+import { SellCategoryComponent } from './views/sell-category/sell-category.component';
 import { SellPropertyComponent } from './views/sell-Property/sell-Property.component';
 import { UserCreationComponent } from './views/UserCreation/UserCreation.component';
 
@@ -39,14 +46,14 @@ const routes: Routes = [
   // },
   {
     path: '',
-   // canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
     component: DashboardComponent,
     children: [
       {
         path: '',
         // redirectTo: './dashboard',
         // pathMatch: 'full',
-        component:LayoutComponent
+        component: LayoutComponent,
       },
       // {
       //   path: 'changepassword',
@@ -72,8 +79,8 @@ const routes: Routes = [
         component: DataViewComponent,
       },
       {
-        path:'category',
-        component:CategoryComponent
+        path: 'category',
+        component: CategoryComponent,
       },
       {
         path: 'userCreation',
@@ -148,9 +155,9 @@ const routes: Routes = [
     ],
   },
   {
-      path: 'dashboard',
-      component: DashboardComponent
-    },
+    path: 'dashboard',
+    component: DashboardComponent,
+  },
   {
     path: 'login',
     component: LoginComponent,
@@ -169,6 +176,35 @@ const routes: Routes = [
     path: 'sellProperty',
     component: SellPropertyComponent,
   },
+  {
+    path: 'sellCategory',
+    component: SellCategoryComponent,
+  },
+  {
+    path: 'propertySell',
+    component: PropertySellComponent,
+  },
+  {
+    path: 'motorCycleSell',
+    component: MotorCycleSellComponent,
+  },
+  {
+    path: 'carSell',
+    component: CarSellComponent,
+  },
+  {
+    path: 'mobileSell',
+    component: MobileSellComponent,
+  },
+  {
+    path: 'electronicSell',
+    component: ElectronicsSellComponent,
+  },
+  {
+    path: 'furnitureSell',
+    component: FurnitureSellComponent,
+  },
+
   {
     path: '**',
 

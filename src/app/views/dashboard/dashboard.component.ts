@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 //import { Chart } from 'chart.js';
+import { Router } from '@angular/router';
 import { DashBoardData, record } from 'src/app/models/Dashboard';
 import { User } from 'src/app/models/masters/UserMaster';
 import { DashBoardService } from 'src/app/services/dash-board.service';
@@ -28,12 +29,13 @@ export class DashboardComponent implements OnInit {
   minimumDate: any;
   options: any;
   products: any;
-  istrue:boolean;
+  istrue: boolean;
   constructor(
     private dashboarddata: DashBoardService,
     private fb: FormBuilder,
     private datePipe: DatePipe,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private router: Router
   ) {
     this.date = new Date();
     this.date1 = new Date().setDate(this.date.getDate() - 1);
@@ -82,12 +84,10 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     debugger;
     this.userMaster = this.loginService.user();
-    if(this.userMaster!=null)
-    {
-       this.istrue=false
-    }
-    else{
-      this.istrue=true;
+    if (this.userMaster != null) {
+      this.istrue = false;
+    } else {
+      this.istrue = true;
     }
     this.customDate();
     this.dashboarddata.getDashBoardData().subscribe((resp: any) => {
@@ -115,6 +115,9 @@ export class DashboardComponent implements OnInit {
       this.verifications = resp.details.verifications;
       this.totalMobileUsers = resp.details.totalMobileUsers;
     });
+  }
+  openSellCategory() {
+    this.router.navigate(['/sellCategory']);
   }
 }
 
