@@ -1,75 +1,48 @@
 <app-header></app-header>
-<div class="container-fluid pt-5 pb-5">
+<div class="col-lg-10 col-md-10 container-fluid offset-lg-1 offset-md-1 pb-5 pt-5">
   <form class="form-group" [formGroup]="form">
     <div class="row">
-      <div class="col-sm-12 col-md-6 my-2">
-        <input
-          class="form-control"
-          type="text"
-          formControlName="PostTitle"
-          pInputText
-          placeholder="Post Title"
-        />
+      <div class="mb-3">
+        <h3>Sell Mobile </h3>
       </div>
       <div class="col-sm-12 col-md-6 my-2">
-        <input
-          class="form-control"
-          type="text"
-          formControlName="Brand"
-          pInputText
-          placeholder="Brand"
-        />
+        <label class="mb-1">Post Title :</label>
+        <input class="form-control" type="text" formControlName="PostTitle" pInputText placeholder="Post Title" />
       </div>
       <div class="col-sm-12 col-md-6 my-2">
-        <input class="form-control" type="text" pInputText placeholder="Year" />
+        <label class="mb-1">Brand :</label>
+        <input class="form-control" type="text" formControlName="Brand" pInputText placeholder="Brand" />
       </div>
       <div class="col-sm-12 col-md-6 my-2">
-        <input
-          class="form-control"
-          type="text"
-          formControlName="Price"
-          pInputText
-          placeholder="Price"
-        />
+        <label class="mb-1">Year :</label>
+        <input class="form-control" type="number" pInputText placeholder="Year" formControlName="Year" />
       </div>
       <div class="col-sm-12 col-md-6 my-2">
-        <p-dropdown
-          placeholder="State"
-          formControlName="State"
-          [options]="stateList"
-          optionLabel="stateName"
-          optionValue="stateId"
-          (onChange)="onStateChange($event)"
-          [showClear]="true"
-        ></p-dropdown>
+        <label class="mb-1">Price :</label>
+        <input class="form-control" type="number" formControlName="Price" pInputText placeholder="Price" />
       </div>
       <div class="col-sm-12 col-md-6 my-2">
-        <p-dropdown
-          placeholder="City"
-          formControlName="City"
-          [options]="cityList"
-          optionLabel="cityName"
-          optionValue="cityId"
-          [showClear]="true"
-        ></p-dropdown>
+        <label class="mb-1">State :</label>
+        <p-dropdown placeholder="State" formControlName="State" [options]="stateList" optionLabel="stateName"
+          optionValue="stateId" (onChange)="onStateChange($event)" [showClear]="true"></p-dropdown>
       </div>
       <div class="col-sm-12 col-md-6 my-2">
-        <input
-          class="form-control"
-          type="text"
-          formControlName="Description"
-          pInputText
-          placeholder="Description"
-        />
+        <label class="mb-1">City :</label>
+        <p-dropdown placeholder="City" formControlName="City" [options]="cityList" optionLabel="cityName"
+          optionValue="cityId" [showClear]="true"></p-dropdown>
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <label class="mb-1">Description :</label>
+        <input class="form-control" type="text" formControlName="Description" pInputText placeholder="Description" />
       </div>
       <div class="col-sm-12 col-md-12 my-2">
+        <input id="uploader" type="file" hidden="true" (change)="fileSelectChange($event)" />
         <div class="border_daes w-50 mx-auto" (click)="imageUpload()">
           <div class="mx-auto text-center my-2 pt-3">
-            <img
-              src="../../../../../assets/img/addImage.png"
-              width="45px"
-              height="45px"
-            />
+            <img *ngIf="selectedFile == undefined" src="../../../../../assets/img/addImage.png" width="45px"
+              height="45px" />
+            <img *ngIf="selectedFile != undefined" [src]="selectedFile" style="max-width: 200px;max-height: 200px; height: -webkit-fill-available;
+            width: -webkit-fill-available;" />
           </div>
           <p class="text-center fw-bolder">Add Mobile image</p>
           <p class="text-center text-danger fw-semibold">+ Add New</p>

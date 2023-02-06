@@ -4,7 +4,7 @@ import { CarSellService } from 'src/app/services/car-sell-service.service';
 import { CityService } from 'src/app/services/city-service.service';
 import { LoginService } from 'src/app/services/login.service';
 import { StateService } from 'src/app/services/state-service.service';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-property-sell',
   templateUrl: './property-sell.component.html',
@@ -24,13 +24,15 @@ export class PropertySellComponent implements OnInit {
   public furnishingType = [];
 
   public form: FormGroup;
+  public selectedFile;
 
   constructor(
     private fb: FormBuilder,
     private carSellService: CarSellService,
     private stateService: StateService,
     private cityService: CityService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -53,8 +55,8 @@ export class PropertySellComponent implements OnInit {
     this.form = this.fb.group({
       State: new FormControl(0),
       City: new FormControl(0),
-      ServiceId: new FormControl(),
-      CategoryId: new FormControl(),
+      ServiceId: new FormControl(1),
+      CategoryId: new FormControl(1),
       TypeOfUser: new FormControl(),
       Action: new FormControl(),
       KindOfProperty: new FormControl(),
@@ -154,7 +156,42 @@ export class PropertySellComponent implements OnInit {
     this.getCity();
   }
   imageUpload() {
-    console.warn('Button Click');
+    document.getElementById('uploader').click();
+  }
+
+  async fileSelectChange(event) {
+    if (event.target.files && event.target.files[0]) {
+      const file: File = event.target.files[0];
+
+      this.form.patchValue({ Image1: file });
+      // this.form.patchValue({ Image: file.name });
+      // if (file.size < 204800) {
+      //   const arrayBuffer = await file.arrayBuffer();
+      var reader = new FileReader();
+
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+      reader.onload = (event) => {
+        // called once readAsDataURL is completed
+        this.selectedFile = event.target.result;
+      };
+
+      //   console.log(arrayBuffer);
+      //   const base64 = btoa(
+      //     new Uint8Array(arrayBuffer).reduce(function (data, byte) {
+      //       return data + String.fromCharCode(byte);
+      //     }, '')
+      //   );
+
+      //   const file_name = file.name.split('.');
+      //   const extension = file_name[file_name.length - 1];
+      //   const fileName = file.name;
+
+      //   console.log(base64);
+      //   console.log(extension);
+      //   console.log(fileName);
+      // }
+    }
   }
 
   onSave() {
@@ -190,7 +227,7 @@ export class PropertySellComponent implements OnInit {
     formData.append('CreatedBy', this.form.get('CreatedBy').value);
 
     this.carSellService.SavePropertySell(formData).subscribe((resp) => {
-      debugger;
+      this.location.back();
     });
   }
 }
