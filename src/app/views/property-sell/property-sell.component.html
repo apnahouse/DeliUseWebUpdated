@@ -1,0 +1,136 @@
+<app-header></app-header>
+<div class="col-lg-10 col-md-10 container-fluid offset-lg-1 offset-md-1 pb-5 pt-5">
+  <form class="form-group" [formGroup]="form">
+    <div class="row">
+      <div class="mb-3">
+        <h3>Sell Property </h3>
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <label class="mb-1">I am :</label>
+        <p-dropdown placeholder="I am" formControlName="TypeOfUser" [options]="realEsateUser"
+          optionLabel="realEstateUser" optionValue="id" [showClear]="true"></p-dropdown>
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <label class="mb-1">I want to :</label>
+        <p-dropdown placeholder="I want to" formControlName="Action" [options]="action" optionLabel="action"
+          optionValue="id" [showClear]="true"></p-dropdown>
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <label class="mb-1">Property type :</label>
+        <p-dropdown placeholder="Property type" formControlName="Type" [options]="propertyType"
+          optionLabel="propertyType" optionValue="id" [showClear]="true"></p-dropdown>
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <label class="mb-1">What kind of property :</label>
+        <p-dropdown placeholder="What kind of property" formControlName="KindOfProperty" [options]="kindOfProperty"
+          optionLabel="propertyKind" optionValue="id" [showClear]="true"></p-dropdown>
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <label class="mb-1">Property age :</label>
+        <p-dropdown placeholder="Property age" formControlName="Age" [options]="propertyAge" optionLabel="age"
+          optionValue="id" [showClear]="true"></p-dropdown>
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <label class="mb-1">Property on floor :</label>
+        <p-dropdown placeholder="Property on floor" formControlName="Floor" [options]="propertyFloor"
+          optionLabel="floor" optionValue="id" [showClear]="true"></p-dropdown>
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <label class="mb-1">Property facing :</label>
+        <p-dropdown placeholder="Property facing" formControlName="Facing" [options]="propertyFacing"
+          optionLabel="facing" optionValue="id" [showClear]="true"></p-dropdown>
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <label class="mb-1">Property available from :</label>
+        <p-dropdown placeholder="Property available from" formControlName="Availability"
+          [options]="propertyAvailability" optionLabel="availability" optionValue="id" [showClear]="true"></p-dropdown>
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <label class="mb-1">Property furnishing :</label>
+        <p-dropdown placeholder="Property furnishing" formControlName="FurnishingType" [options]="furnishingType"
+          optionLabel="furnishingType" optionValue="id" [showClear]="true"></p-dropdown>
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <label class="mb-1">Bathroom :</label>
+        <input class="form-control" type="number" pInputText placeholder="Bathroom" formControlName="Bathroom">
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <label class="mb-1">Balcony :</label>
+        <input class="form-control" type="number" pInputText placeholder="Balcony" formControlName="Balcony" />
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <label class="mb-1">Covered Parking :</label>
+        <input class="form-control" type="number" pInputText placeholder="Covered Parking"
+          formControlName="CoveredParking" />
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <label class="mb-1">Open parking :</label>
+        <input class="form-control" type="number" pInputText placeholder="Open parking" formControlName="OpenParking" />
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <label class="mb-1">State :</label>
+        <p-dropdown placeholder="State" formControlName="State" [options]="stateList" optionLabel="stateName"
+          optionValue="stateId" (onChange)="onStateChange($event)" [showClear]="true"></p-dropdown>
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <label class="mb-1">City :</label>
+        <p-dropdown placeholder="City" formControlName="City" [options]="cityList" optionLabel="cityName"
+          optionValue="cityId" [showClear]="true"></p-dropdown>
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <label class="mb-1">Locality :</label>
+        <input class="form-control" type="text" pInputText placeholder="Locality" formControlName="Locality" />
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <label class="mb-1">Plot area (Sq ft.) :</label>
+        <input class="form-control" type="number" pInputText placeholder="Plot area (Sq ft.)"
+          formControlName="PlotArea" />
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <label class="mb-1">Built up area (Sq ft.) :</label>
+        <input class="form-control" type="number" pInputText placeholder="Built up area (Sq ft.)"
+          formControlName="BuiltUpArea" />
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <label class="mb-1">Expected price (&#8377;) :</label>
+        <input class="form-control" type="number" pInputText placeholder="Expected price (&#8377;)"
+          formControlName="ExpectedPrice" />
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <label class="mb-1">Total floor :</label>
+        <input class="form-control" type="number" pInputText placeholder="Total floor" formControlName="TotalFloors" />
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <label class="mb-1">Maintenance charge (&#8377;) :</label>
+        <input class="form-control" type="number" pInputText placeholder="Maintenance charge (&#8377;)"
+          formControlName="MaintenanceCharge" />
+      </div>
+      <div class="col-sm-12 col-md-6 my-2">
+        <label class="mb-1">Description :</label>
+        <input class="form-control" type="text" pInputText placeholder="Description" formControlName="Description" />
+      </div>
+      <div class="col-sm-12 col-md-12 my-2">
+        <input id="uploader" type="file" hidden="true" (change)="fileSelectChange($event)" />
+        <div class="border_daes w-50 mx-auto" (click)="imageUpload()">
+          <div class="mx-auto text-center my-2 pt-3">
+            <img *ngIf="selectedFile == undefined" src="../../../../../assets/img/addImage.png" width="45px"
+              height="45px" />
+            <img *ngIf="selectedFile != undefined" [src]="selectedFile" style="max-width: 200px;max-height: 200px; height: -webkit-fill-available;
+            width: -webkit-fill-available;" />
+          </div>
+          <p class="text-center fw-bolder">Add Property image</p>
+          <p class="text-center text-danger fw-semibold">+ Add New</p>
+          <p class="text-center text-secondary fw-semibold pb-3">
+            .jpg,.png and jpeg
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row me-2">
+      <div class="col-sm-12 col-md-12 text-end my-2">
+        <button class="btn btn-dark" (click)="onSave()">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+<app-footer></app-footer>

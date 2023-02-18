@@ -41,6 +41,14 @@ import { ProductDescriptionComponent } from './views/productDescription/productD
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { InboxComponent } from './views/Inbox/Inbox.component';
 import { CategoryComponent } from './views/category/category.component';
+
+import { SellCategoryComponent } from './views/sell-category/sell-category.component';
+import { MotorCycleSellComponent } from './views/motor-cycle-sell/motor-cycle-sell.component';
+import { CarSellComponent } from './views/car-sell/car-sell.component';
+import { MobileSellComponent } from './views/mobile-sell/mobile-sell.component';
+import { ElectronicsSellComponent } from './views/electronics-sell/electronics-sell.component';
+import { FurnitureSellComponent } from './views/furniture-sell/furniture-sell.component';
+import { PropertySellComponent } from './views/property-sell/property-sell.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +68,14 @@ import { CategoryComponent } from './views/category/category.component';
     ProductDescriptionComponent,
     InboxComponent,
     CategoryComponent,
+
+    SellCategoryComponent,
+    MotorCycleSellComponent,
+    CarSellComponent,
+    MobileSellComponent,
+    ElectronicsSellComponent,
+    FurnitureSellComponent,
+    PropertySellComponent,
   ],
   imports: [
     BrowserModule,
